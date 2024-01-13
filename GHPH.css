@@ -1,0 +1,51 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+
+html{
+    background-color: rgb(83, 54, 27);
+    
+}
+
+
+ul{
+    display:block;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+
+ul li{
+    display:block;
+    float:left;
+
+    margin: 2rem 10.5%;
+}
+
+
+ul li a{
+    text-decoration: none;
+    color:black;
+}
+
+nav{
+    display: block;
+}
+
+main{
+    clear:both;
+    display: block;
+    margin: 3rem 0 0;
+}
+
+main p,main h2, footer {
+    margin: 0 0 0 2.5rem;
+}
+
+main h2, main p{
+    margin: 0 0 2rem 2.5rem ;
+    
+}
