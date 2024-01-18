@@ -16,19 +16,22 @@ ul{
     text-decoration: none;
 }
 
-
-
 ul li{
     display:block;
     float:left;
 
-    margin: 2rem 10.5%;
+    margin: 2rem 14%;
 }
 
 
 ul li a{
     text-decoration: none;
     color:black;
+    
+}
+
+ul li a:hover{
+    color:rgb(182, 118, 0);
 }
 
 nav{
@@ -39,6 +42,11 @@ main{
     clear:both;
     display: block;
     margin: 3rem 0 0;
+}
+
+
+h1{
+    text-align: center;
 }
 
 main p,main h2, footer {
