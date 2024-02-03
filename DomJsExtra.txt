@@ -1,0 +1,51 @@
+var myDiv = document.querySelector('#targetDiv');
+var n = 0;
+for(let i = 0; i < 5; i++)
+{
+    var paragraph = document.createElement('p');
+    paragraph.textContent = "Jerald Jacob Myer saw a strange slippery snake sneak slowly" +
+                            "through the sunset soaked scenerey.";
+    myDiv.appendChild(paragraph);
+}
+
+
+function backgroundColor()
+{
+    var targetDiv = document.getElementById('targetDiv');
+    var bgColor = getComputedStyle(targetDiv).backgroundColor;
+    console.log(bgColor)
+
+    if (bgColor === 'rgb(128, 0, 128)')
+    {
+        document.body.style.backgroundColor = 'rgb(83, 54, 27)';   
+        myDiv.style.backgroundColor = 'rgb(83, 54, 27)';
+        console.log("inside if")
+    }
+    else
+    {
+        document.body.style.backgroundColor = "blue";   
+        myDiv.style.backgroundColor = "purple";
+        
+        
+        console.log(n)
+        n++
+    }
+}
+
+
+function addButtonToTopDiv() {
+    var button = document.createElement('button'); // Create a new button element
+    button.textContent = 'Click Me'; // Set the button text
+
+    // Add an event listener to the button that calls backgroundColor() when the button is clicked
+    button.addEventListener('click', backgroundColor);
+
+    // Select the div with the id "topDiv"
+    var topDiv = document.getElementById('topDiv');
+
+    // Append the button to the "topDiv" div
+    topDiv.appendChild(button);
+}
+
+// Call the function to add the button
+addButtonToTopDiv();

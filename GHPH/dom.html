@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale-1.0, minimum-scale-1.0, user-scalable-no">
-    <title>Your Page Title</title>
+    <title>dom w/ color button</title>
     <meta name="description" content="A brief description of your web page">
     <link rel="stylesheet" href="GHPH.css">
-    <script src="arrays.js"></script>
+
+    <!-- CSS Rules to outline the .js target div-->
+    <style>
+            /*Outline for target div, 80% width and centered  */
+            #targetDiv{
+                width: 80%;
+                margin: 0 auto;
+                outline: 1px solid blue;
+            }
+            /* space where button is inserted*/
+            #topDiv{
+                display: block;
+            }
+    </style>
 </head>
 <body>
     <header>
@@ -24,11 +37,17 @@
     
     <main>
         <h2>About Me</h2>
+        <div id="topDiv"></div>
         <p>2nd semester student @ Southeast Technical College</p>
+
+        <!-- taget for the dom.js -->
+        <div id="targetDiv">
+        </div>
     </main>
     
     <footer>
         <p>&copy; 2023 Your Website Name</p>
+    <script src="dom.js"></script>
     </footer>
 </body>
 </html>
