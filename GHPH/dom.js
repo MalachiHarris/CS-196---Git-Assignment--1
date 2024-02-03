@@ -1,3 +1,6 @@
+// Malachi Harris
+// 2-3-24
+
 //var equal to the div
 var myDiv = document.querySelector('#targetDiv');
 
@@ -28,18 +31,18 @@ function backgroundColor()
 
 
 
-// I used JS to add the button
+// I used JS to create the button 
 var button = document.createElement('button'); 
 button.textContent = 'background change'; 
 button.style.display = 'block';
 button.style.margin = '0 auto';
 
 
-//add to page
+//add button to page
 var topDiv = document.getElementById('topDiv');
 topDiv.appendChild(button);
 
-//on click attribut runs backgroundColor function
+//On click attribut runs backgroundColor function
 button.onclick = backgroundColor;
 
 
