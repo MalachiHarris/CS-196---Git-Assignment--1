@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale-1.0, minimum-scale-1.0, user-scalable-no">
+    <title>Async, Await, and Promises</title>
+    <meta name="description" content="A brief description of your web page">
+    
+</head>
+<body>
+    <script src="async.js"></script>
+
+
+    <header>
+        <h1>Async, Await, and Promises</h1>
+        <nav>
+
+        </nav>
+    </header>
+    <main>
+        <h2>Description</h2>
+        <p>This project works with the basic syntax of async functions, and the await keyword. and the 
+            await keyword and the promise object.
+            <br><br>
+
+            In it we have a async function named OneRun().
+            we create and set two vars(runner1,runner2) to track results of promises
+            Then we create set two ints to random #'s between 1000 & 3000. These are used for delays which differ.
+            lastly there is a string created and set to "", this will later be used to output to console which "runner" wins, #1 or #2.
+            <br><br>
+
+            Then we create a promise for each runner. They are named runner1Go & runner2Go.
+            the parmeter for a promise is a function that will run in parallel while other code also executes.
+            In this rather simple example each of the 2 promises simply run a SetTimeout() funciton.
+            <br><br>
+
+            The set timeout function also takes a function as a parameter, but also a delay as 
+            the second parameter(normally named ms as the delay is in milliseconds). The set timeout
+            runs the code in the function after the time of the delay has passed. Our setTimeout functions
+            simply set the loser string variable to "runner1" or "runner2" according ot their respective
+             promise, and then resolve the promise with a value of true.
+            <br><br>
+
+             then at the end of the OneRun async function, we return an array containing the results of runner1 & runner2
+             variables,  and the loser string.  we use await on runner1Go and runner2Go. This makes the code wait
+             for the promises to finish and give their result.
+             <br><br>
+
+             finally we simply call the async function and use a 'then' method 
+             which takes a function as a parameter.That function takes a parameter which is the result
+              of the async function. Inside of that we simply have code to log the result to the console.
+               See this pages console and you will see the array with a value of true, true, and a string 
+               that tells you who the "loser" is(the promise that was assigned the higher delay)
+
+
+            
+        </p>
+    </main>
+    <footer>
+        <p>&copy; 2023 Unit 2 First Assignment</p>
+    </footer>
+</body>
+</html>
+
+
