@@ -43,49 +43,7 @@ const tileTrack = new TileCounter(0,0);
 
 
 
-//button has the tiles"fight" winner keeps remainder
-var button = document.getElementById("battle_button");
-button.addEventListener("click", function() {
 
-
-
-    const result = tileTrack.winner();
-    const remainderOfTiles = Math.abs(tileTrack.redCount - tileTrack.blueCount);
-
-    //remove all play tiles, reset count
-    const container = document.querySelector('.central_box');
-    const playTiles = container.querySelectorAll('.play_tile');
-    playTiles.forEach(tile => tile.remove());
-    totalTileCount = 0;
-
-
-    //create tiles for winner = to the remainder, alert user of outcome
-    console.log(result);
-    switch (result){
-        case "red":
-            for (i = 0; i < remainderOfTiles; i++){
-                let playTile = document.createElement("div");
-                playTile.classList.add("play_tile", "red_tile");
-                playTile.textContent = "Red";
-                ctr_box.appendChild(playTile);
-            }
-            alert("red wins, they get to keep the survivors");
-
-        break;
-        case "blue":
-            for (i = 0; i < remainderOfTiles; i++){
-                let playTile = document.createElement("div");
-                playTile.classList.add("play_tile", "blue_tile");
-                playTile.textContent = "blue";
-                ctr_box.appendChild(playTile);
-            }
-            alert("blue wins, they get to keep the survivors");
-        break;
-        case "tie":
-            alert("It was a tie. There were no survivors...")
-    }
-    
-});
 //target for following events
 var ctr_box = document.querySelector(".central_box");
 
@@ -121,6 +79,55 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+//button has the tiles"fight" winner keeps remainder
+var button = document.getElementById("battle_button");
+button.addEventListener("click", function() {
+
+
+
+    const result = tileTrack.winner();
+    const remainderOfTiles = Math.abs(tileTrack.redCount - tileTrack.blueCount);
+
+    //remove all play tiles, reset count
+    const container = document.querySelector('.central_box');
+    const playTiles = container.querySelectorAll('.play_tile');
+    playTiles.forEach(tile => tile.remove());
+    totalTileCount = 0;
+
+
+    //create tiles for winner = to the remainder, alert user of outcome
+    console.log(result);
+    switch (result){
+        case "red":
+            for (i = 0; i < remainderOfTiles; i++){
+                let playTile = document.createElement("div");
+                playTile.classList.add("play_tile", "red_tile");
+                playTile.textContent = "Red";
+                ctr_box.appendChild(playTile);
+
+                tileTrack.addRed();
+                totalTileCount++;
+            }
+            alert("red wins, they get to keep the survivors");
+
+        break;
+        case "blue":
+            for (i = 0; i < remainderOfTiles; i++){
+                let playTile = document.createElement("div");
+                playTile.classList.add("play_tile", "blue_tile");
+                playTile.textContent = "blue";
+                ctr_box.appendChild(playTile);
+
+                tileTrack.addBlue();
+                totalTileCount++;
+            }
+            alert("blue wins, they get to keep the survivors");
+        break;
+        case "tie":
+            alert("It was a tie. There were no survivors...")
+    }
+    
+});
 
 
 
