@@ -13,6 +13,8 @@
 let totalTileCount = 0;
 
 //class w/ constructor taking parameters that affect its properties
+//keeps track of number of blue and red tiles. 
+//has function to return winner.
 class TileCounter {
     constructor(redCount, blueCount) {
       this.redCount = redCount;
@@ -36,10 +38,10 @@ class TileCounter {
         return "tie";
     }
   }
+
+
 //create object from class TileCounter
 const tileTrack = new TileCounter(0,0);
-
-
 
 
 
@@ -79,11 +81,10 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+
 //button has the tiles"fight" winner keeps remainder
 var button = document.getElementById("battle_button");
 button.addEventListener("click", function() {
-
-
 
     const result = tileTrack.winner();
     const remainderOfTiles = Math.abs(tileTrack.redCount - tileTrack.blueCount);
@@ -95,7 +96,7 @@ button.addEventListener("click", function() {
     totalTileCount = 0;
 
 
-    //create tiles for winner = to the remainder, alert user of outcome
+    //create tiles for winner = to the remainder, alert user of outcome, reset (red/blue)count to 0
     console.log(result);
     switch (result){
         case "red":
@@ -109,7 +110,8 @@ button.addEventListener("click", function() {
                 totalTileCount++;
             }
             alert("red wins, they get to keep the survivors");
-
+            tileTrack.blueCount = 0;
+            tileTrack.redCount = remainderOfTiles;
         break;
         case "blue":
             for (i = 0; i < remainderOfTiles; i++){
@@ -122,9 +124,14 @@ button.addEventListener("click", function() {
                 totalTileCount++;
             }
             alert("blue wins, they get to keep the survivors");
+            tileTrack.blueCount = remainderOfTiles;
+            tileTrack.redCount = 0;
+
         break;
         case "tie":
             alert("It was a tie. There were no survivors...")
+            tileTrack.blueCount = 0;
+            tileTrack.redCount = 0;
     }
     
 });
