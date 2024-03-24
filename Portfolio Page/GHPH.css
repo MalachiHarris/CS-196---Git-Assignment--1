@@ -1,37 +1,72 @@
 * {
     padding:0;
     margin:0;
+
+    /* outline: 1px solid black */
 }
 
 
 html{
     background-color: rgb(83, 54, 27);
+
+    color: white;
     
 }
 
 
 ul{
-    display:block;
+    /* display:block; */
     list-style-type: none;
     text-decoration: none;
+
+
+    display:flex;
+
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
+/*ul li - display of header  buttons*/
 ul li{
-    display:block;
-    float:left;
+    background-color: rgb(71, 71, 71);
+    display:flex;
 
-    margin: 2rem 8%;
+    align-items: center;
+    justify-content: center;
+
+    
+    min-width: 100px;
+    min-height: 15px;
+
+    width: 10%;
+    height: 10%;
+
+
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    
+    float: left;
+    margin: 10px auto;
 }
  
-
+/* header link display */
 ul li a{
     text-decoration: none;
-    color:black;
-    
+    color:white;    
+
 }
 
+
+
+
+
+
+/* header link hover */
 ul li a:hover{
     color:rgb(182, 118, 0);
+
 }
 
 nav{
@@ -49,11 +84,23 @@ h1{
     text-align: center;
 }
 
-main p,main h2, footer {
-    margin: 0 0 0 2.5rem;
-}
+/* main p,main h2, footer {
+    display:block;
+    margin: 1rem auto;
+} */
 
-main h2, main p{
+/* main h2, main p{
     margin: 0 0 2rem 2.5rem ;
     
+} */
+
+
+/*main - for content*/
+main{
+    display: block;
+    margin: 3rem auto;
+    outline: 1px black solid;
+    max-width: 90%;
+    padding: 2%;
+    text-align: center;
 }
