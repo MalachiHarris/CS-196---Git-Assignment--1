@@ -150,8 +150,7 @@ while(finishedPopulating == false){
             toCheckArray.shift();
         }
 
-        // if(i== initialLength-1)
-        //     alert(toCheckArray);
+
     }
     
 
@@ -160,11 +159,10 @@ while(finishedPopulating == false){
     for (i = 0; i < toCheckArray.length; i++){
         if (toCheckArray[i] !=null){
             if (toCheckArray[i].left != null)
-                // alert("value left: " + toCheckArray[i].left.value);
+                
                 isThereChildren = true;
             
-            if (toCheckArray[i].right != null)
-            // alert("value right: " + toCheckArray[i].right.value);
+
 
         ctr_box_row.offsetHeight; 
         isThereChildren = true;
@@ -201,14 +199,6 @@ function depthSearchToArray(node, array) {
     }
 }
 
-depthSearchToArray(learningTree.root,depthArray);
-
-
-targetDiv = document.getElementById("depth")
-elementToInsert = document.createElement("p");
-elementToInsert.classList.add("depth");
-elementToInsert.textContent = "The Result of the Depth Search:\t" +  depthArray;
-targetDiv.appendChild(elementToInsert);
 
 
 
@@ -244,13 +234,51 @@ function breadthSearchToArray(root, array) {
     }
 }
 
-breadthSearchToArray(learningTree.root, breadthArray);
-console.log("The Result of the Breadth Search:", breadthArray);
 
 
 
-targetDiv = document.getElementById("breadth")
-elementToInsert = document.createElement("p");
-elementToInsert.classList.add("breadth");
-elementToInsert.textContent = "The Result of the Breadth Search:\t" +  breadthArray;
-targetDiv.appendChild(elementToInsert);
+
+// Buttons
+var breadthButton = document.getElementById("breadth_a");
+var depthButton = document.getElementById("depth_a")
+breadthButton.addEventListener("click", () => {
+    // calls breadthSearchToArray and uses modified array to add a paragraph to the page
+    
+    breadthArray = [];
+    breadthSearchToArray(learningTree.root, breadthArray);
+    
+
+    targetDiv = document.getElementById("breadth");
+    var existingP = targetDiv.querySelector("p");
+
+    if (existingP) {
+        // Update the existing <p> element's text content
+        existingP.textContent = "The Result of the Breadth Search:\t" + breadthArray;
+    } else {
+        // Create a new <p> element if none exists
+        elementToInsert = document.createElement("p");
+        elementToInsert.classList.add("breadth");
+        elementToInsert.textContent = "The Result of the Breadth Search:\t" + breadthArray;
+        targetDiv.appendChild(elementToInsert);
+    }
+});
+
+depthButton.addEventListener("click", () => {
+    // calls depthSearchToArray and uses modified array to add a paragraph to the page
+    depthArray = [];
+    depthSearchToArray(learningTree.root, depthArray);
+
+    targetDiv = document.getElementById("depth");
+    var existingP = targetDiv.querySelector("p"); 
+
+    if (existingP) {
+        // Update the existing <p> element's text content
+        existingP.textContent = "The Result of the Depth Search:\t" + depthArray;
+    } else {
+        // Create a new <p> element if none exists
+        elementToInsert = document.createElement("p");
+        elementToInsert.classList.add("depth");
+        elementToInsert.textContent = "The Result of the Depth Search:\t" + depthArray;
+        targetDiv.appendChild(elementToInsert);
+    }
+});

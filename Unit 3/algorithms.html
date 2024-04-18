@@ -5,67 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale-1.0, minimum-scale-1.0, user-scalable-no">
     <title>Algorithms & Binary Trees</title>
     <meta name="description" content="Demostrate how binary trees work and ">
-    <link rel="stylesheet" href="algorithms.css"> 
+    <link rel="stylesheet" href="algorithms.css">
 </head>
 <body>
-    <header>
-    </header>
-        <div class="cards">
-            <div class=" nav">
-                <div class="nav_link">
-                    <a class="fill" href="/CS196-Portfolio-Page"></a>Home
-                </div>
+    <header></header>
+    <div class="cards">
+        <div class=" nav">
+            <div class="nav_link">
+                <a class="fill" href="/CS196-Portfolio-Page"></a>Home
             </div>
-			
-			
-			
-            <div class="buttons">
-                <div class = "head_message">
-                    <p>
-                        This page demonstrates a binary tree object in JavaScript and then performs a breadth and depth search on the tree.
-                    </p>
-                </div>
-            </div>
-			
-			
-	
-		
-			
-			
-	
-			
-			<div class = "central_box"> 
-
-             
-
-
-				<!-- <p>first</p>
-				<p>second</p>
-				<p>third</p> -->
-			</div>
-
-            <div class = "central_box">
-                <div class="cb_row">
-                    <p>
-                        Above is the tree that is made with this pages .js. <br>
-                        <br>This is just a visual representation.
-                        <br>The "-"s represent null paths of the nodes <br>
-                        <br>The values were inserted into the tree in the following order: <br>
-                        50, 48, 75, 52, 51, 54, 52, 13, 42, 58, 40, 60
-                    </p>
-                </div>
-                <div class="cb_row" id="breadth">
-                    
-                </div>
-                <div class="cb_row" id="depth">
-                    
-                </div>
-            </div>
-			
         </div>
+        <div class="buttons">
+            <div class="head_message">
+                <p>This page demonstrates a binary tree object in JavaScript and then performs a breadth and depth search on the tree.</p>
+            </div>
+        </div>
+        <div class="central_box">
+            <!-- <p>first</p>
+            <p>second</p>
+            <p>third</p> -->
+        </div>
+        <div class="central_box">
+            <div class="cb_row">
+                <p>Above is a visual representation of the tree that is made with this pages .js. <br><br>
+                    Numbers represent to the stored valued from within each node,<br>
+                    & the "-"s represent null paths of the nodes <br>
+                    even the children of a null path are represented for visual clarity and simpliciteis sake<br><br>
+                    The values were inserted into the tree in the following order: <br>
+                    50, 48, 75, 52, 51, 54, 52, 13, 42, 58, 40, 60</p>
+            </div>
+            <div class="cb_row" id="breadth"></div>
+            <div class="cb_row" id="depth"></div>
+            <div class="cb_row">
+                <button id="breadth_a">breadth search</button>
+				<button id="depth_a">depth search</button>
+
+                
+            </div>
+        </div>
+    </div>
     <footer></footer>
     <script src="algorithms.js"></script>
 </body>
 </html>
-
-
