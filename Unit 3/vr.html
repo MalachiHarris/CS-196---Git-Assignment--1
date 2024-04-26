@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        
+
+        <!-- ----------------USER PERSPECTIVE ------------- -->
+        <a-entity   
+                    camera 
+                    position = "0 2 10"
+                    wasd-controls 
+                    look-controls
+                    >
+        </a-entity>
+
+        <a-entity camera="active: true" position="0 1.6 0" wasd-controls look-controls></a-entity>
+
+
+
+        <!-- ----------------LIGHT ------------- -->
+        <a-light    type="point" 
+                    color="#e6ffff" 
+                    decay = "6"
+                    position="-20 15 -10"
+                    intensity = "2"
+                    >
+        </a-light>
+
+
+
+        <!-- ----------------3 PRIATIVES ------------- -->
+                <!-- TORUS -->
+        <a-torus    color="#43A367" 
+                    arc="180" 
+                    radius="5" 
+                    radius-tubular="0.1"
+                    rotation = " 0 0 180"
+                    Position = "2.5 7 -15"
+                    >
+        </a-torus>
+
+                <!-- RING 1 -->
+        <a-ring       
+                    color="teal" 
+                    radius-inner="1" 
+                    radius-outer="2"
+                    position="0 12 -15.5"
+                    >
+        </a-ring>
+                <!-- RING 2 -->
+        <a-ring       
+        color="teal" 
+        radius-inner="1" 
+        radius-outer="2"
+        position="5 12 -15.5"
+        >
+        </a-ring>
+
+                <!-- TETRAHEDRON -->
+        <a-tetrahedron 
+                    color="#43A367" 
+                    radius="1"
+                    Position = "2.5 7 -15"
+                    rotation = " 0 215 155"
+                    >
+        </a-tetrahedron>
+
+        
+
+
+        <!-- ---------------- FLOOR ------------- -->
+        <a-plane
+            position="0 0 -4"
+            rotation="-90 0 0"
+            width="400"
+            height="400"
+            color="#802b00"
+            >
+        </a-plane>
+
+        
+        <!-- ---------------- SKY ------------- -->
+        
+        <a-sky color="#3366ff"></a-sky>
+    </a-scene>
+
+    <script src="vr.js"></script>
+  </body>
+</html>
