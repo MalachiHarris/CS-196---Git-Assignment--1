@@ -52,17 +52,21 @@ class BinaryTree {
 var huffmanTree = new BinaryTree();
 
 
-var inputString
 function getInput(){
     let inputTextbox = document.getElementById("user_input");
     const userInput = inputTextbox.value;
-    inputString = userInput;
     return userInput;
 }
 
 var button = document.getElementById("get_user_input");
 button.addEventListener("click",() => {
         const input = getInput();
+
+        if(input.length == 0){
+            let targetDiv = document.getElementById("output");
+            targetDiv.value = "";
+            return;
+        }
 
         //put input's unique characters into an array with a count of each amount of occurances
         var charCountArray = inputCharCountArrayConstruct();
@@ -74,27 +78,29 @@ button.addEventListener("click",() => {
         huffmanTreeNode = BuildHuffmanTreeFromNodes(arrayOfNodes);
     
         //set Tree objects root to the head node built from tree
-        huffmanTree.root = huffmanTreeNode
+        huffmanTree.root = huffmanTreeNode;
         
         //create an array that will hold the key for the huffamn tree to encode
         //[0] is the value(character)
         //[1] is the bit signature for the encoding
         let huffTreeKeyArray = [];
-        buildKeyToHuffmanTree(huffmanTreeNode, huffTreeKeyArray);
+        buildKeyToHuffmanTree(huffmanTree.root, huffTreeKeyArray);
         
         let outputString = "";
         //Use the key to step through the input string and
         //make a string representing the huffman code bits it would encode to
         for (let i = 0; i < input.length; i++) {
             const char = input.charAt(i);
-            huffTreeKeyArray.forEach (innerArray => {
-                if (innerArray[0] == char){
-                    outputString += innerArray[1];
+            huffTreeKeyArray.forEach (keyArray => {
+                if (keyArray[0] == char){
+                    outputString += keyArray[1];
                 }
             });
         }
-        targetDiv = document.getElementById("output");
+        let targetDiv = document.getElementById("output");
         targetDiv.value = outputString;
+
+        console.table(huffTreeKeyArray);
 });
 
 let bitSignature = "";
@@ -107,15 +113,14 @@ function buildKeyToHuffmanTree(node, keyArray){
 
     if (node.left != null){
         bitSignature += "0";
-        buildKeyToHuffmanTree(node.left, keyArray)
+        buildKeyToHuffmanTree(node.left, keyArray);
         bitSignature = bitSignature.substring(0, bitSignature.length-1);
     }
     if (node.right != null){
         bitSignature += "1";
-        buildKeyToHuffmanTree(node.right, keyArray)
+        buildKeyToHuffmanTree(node.right, keyArray);
         bitSignature = bitSignature.substring(0, bitSignature.length-1);
     }
-
 }
 
 
@@ -160,10 +165,18 @@ function MakeNodesFromArray(inputArray){
 
 
 function inputCharCountArrayConstruct(){
-    
+    //function returns an array of arrays(length 2) that store the character
+    // and the quantity of occurances in the string
+
+
     //array to track characters occurance
-    var stringToSortArray = [];
     const input = getInput();
+    
+    var stringToSortArray = [];
+    //make array with result of the function
+    //[0] contains the character
+    //[1] containts the quantity of occurances in the string
+
 
     //step through string
     for (let i = 0; i < input.length; i++) {
@@ -173,9 +186,10 @@ function inputCharCountArrayConstruct(){
 
         const char = input.charAt(i);
         var hasMatchingChar = false;
+
         stringToSortArray.forEach (innerArray =>{
             if (innerArray[0] == char){
-                innerArray[1] +=1;
+                innerArray[1] += 1;
                 hasMatchingChar = true;
             }
         });
